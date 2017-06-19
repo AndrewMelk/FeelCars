@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:aws-context="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- declare beans -->
+    <bean id="carDao" class="com.melkov.dao.impl.CarDaoImpl" />
+    <bean id="carService" class="com.melkov.service.impl.CarServiceImpl" />
+    <bean id="markListDao" class="com.melkov.dao.impl.MarkListDaoImpl" />
+    <bean id="carMarksService" class="com.melkov.service.impl.CarMarksServiceImpl"/>
+    <bean id="carModelDao" class="com.melkov.dao.impl.CarModelDaoImpl"/>
+    <bean id="carModelsService" class="com.melkov.service.impl.CarModelsServiceImpl"/>
+    <bean id="cityDao" class="com.melkov.dao.impl.CityDaoImpl"/>
+    <bean id="cityService" class="com.melkov.service.impl.CityServiceImpl"/>
+    <bean id="regionDao" class="com.melkov.dao.impl.RegionDaoImpl"/>
+    <bean id="regionService" class="com.melkov.service.impl.RegionServiceImpl"/>
+    <bean id="carImageDao" class="com.melkov.dao.impl.CarImageDaoImpl"/>
+    <bean id="carImageService" class="com.melkov.service.impl.CarImageServiceImpl"/>
+
+
+
+    <import resource="appconfig-mvc.xml"/>
+
+    <import resource="appconfig-data.xml"/>
+
+    <import resource="appconfig-security.xml"/>
+
+    <context:component-scan base-package="com.melkov.*"/>
+
+    <context:property-placeholder location="classpath:database.properties"/>
+
+</beans>
